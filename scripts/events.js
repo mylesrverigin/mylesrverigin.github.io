@@ -29,10 +29,13 @@ class Events {
         /* Checks if value is number 
         Ret: false if NaN else number
         */
-        if (isNaN(this.getValue())){
+        var userInput = this.getValue();
+        if (isNaN(userInput)){
+            return false;
+        }else if (userInput == '' || userInput == ' '){
             return false;
         }
-        var parsed = parseInt(this.getValue());
+        var parsed = parseInt(userInput);
         if (parsed == 0){
             return false;
         }
@@ -46,9 +49,9 @@ class Events {
         else resets cell
          */
         if (this.getTagName() === 'INPUT'){
-            var temp = this.filterInput();
-            if (typeof(temp) === 'number'){
-                insertElement(temp,this.getId());
+            var filteredInput = this.filterInput();
+            if (typeof(filteredInput) === 'number'){
+                insertElement(filteredInput,this.getId());
             } else{
                 insertElement('',this.getId());
             }
