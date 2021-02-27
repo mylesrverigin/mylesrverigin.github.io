@@ -1,4 +1,4 @@
-import {ShowValue, ShowTagName, ShowId} from './puzzle.js';
+import {ShowValue, ShowTagName, ShowId} from './misc.js';
 
 //  ShowAllAttributes takes a long time to run through all print outs //
 
