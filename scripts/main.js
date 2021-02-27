@@ -1,8 +1,6 @@
-import {ShowValue, ShowTagName, ShowId} from './misc.js';
-
-//  ShowAllAttributes takes a long time to run through all print outs //
+import {Events} from './events.js';
 
 document.addEventListener('change',event => {
-    ShowId(event.target);
-    ShowValue(event.target);
+    let temp = new Events(event);
+    temp.handleClick();
 })

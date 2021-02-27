@@ -3,12 +3,3 @@ export function ShowAllAttrributes(obj){
         alert(att);
     }
 }
-export function ShowTagName(obj){
-    alert(obj.tagName);
-}
-export function ShowValue(obj){
-    alert(parseInt(obj.value));
-}
-export function ShowId(obj){
-    alert(obj.id);
-}
