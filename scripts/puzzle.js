@@ -219,10 +219,6 @@ export class Puzzle {
             this.shuffleRow();
             shuffles--;
         }
-        this.remove(5);
+        this.remove(30);
     }
 }
-
-// new Set() .add(1) .has(1) .size
-// var quotient = Math.floor(y/x);
-// var remainder = y % x;
