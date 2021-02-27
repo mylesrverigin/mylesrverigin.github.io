@@ -1,4 +1,10 @@
 import {insertElement} from './modify-dom.js';
+import {Puzzle} from './puzzle.js';
+
+var p = new Puzzle();
+p.run();
+p.writePuzzle();
+
 
 class Events {
     /* Class used to handle events and call other methods based on what happens
@@ -51,9 +57,11 @@ class Events {
         if (this.getTagName() === 'INPUT'){
             var filteredInput = this.filterInput();
             if (typeof(filteredInput) === 'number'){
-                insertElement(filteredInput,this.getId());
+                insertElement(this.getId(),filteredInput);
+                p.updateBoard(this.getId(),filteredInput);
             } else{
-                insertElement('',this.getId());
+                insertElement(this.getId(),'');
+                p.updateBoard(this.getId(),false);
             }
         }
     }
