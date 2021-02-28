@@ -320,6 +320,5 @@ export class Puzzle {
         }
         this.remove(40);
         this.writePuzzle();
-        console.log(this.returnCube(8,8));
     }
 }
