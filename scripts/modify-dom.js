@@ -17,3 +17,17 @@ export function insertElementWriteProtect(id,value){
    document.getElementById(id).value = value;
    document.getElementById(id).disabled = true;
 }
+
+export function insertElementColor(id,value,color){
+    /* Insert element into cell and set background color before making it disable
+    args:
+        id: if of cell
+        value: value to insert
+        color: color to change it to
+    */
+   document.getElementById(id).value = value;
+   document.getElementById(id).style.backgroundColor = color;
+   document.getElementById(id).disabled = true;
+}
+
+

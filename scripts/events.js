@@ -1,8 +1,9 @@
 import {insertElement} from './modify-dom.js';
 import {Puzzle} from './puzzle.js';
+import {Solver} from './solver.js';
 
 var pzzle = new Puzzle();
-pzzle.clearBoard();
+var solved = new Solver();
 
 class Events {
     /* Class used to handle events and call other methods based on what happens
@@ -54,26 +55,33 @@ class Events {
 
     handleClick(){
         /* Filters Click event
-        if type int Lets puzzle update 
-        else resets cell
+        if input
+            if type int Lets puzzle update 
+            else resets cell
+        if button 
+            turns on flag to allow in put watching
+            can also reset or solve puzzle
          */
 
         if (this.getTagName() === 'INPUT' && this.start){
             var filteredInput = this.filterInput();
             if (typeof(filteredInput) === 'number'){
                 insertElement(this.getId(),filteredInput);
-                if(p.updateBoard(this.getId(),filteredInput)){
-                    //check solution
+                if(pzzle.updateBoard(this.getId(),filteredInput)){
+                    // board full flag fired check solution
+                    solved.addPuzzle(pzzle);
+                    solved.isSolved();
                 };
             } else{
                 insertElement(this.getId(),'');
-                p.updateBoard(this.getId(),false);
+                pzzle.updateBoard(this.getId(),false);
             }
         }else if (this.getTagName() === 'BUTTON'){
             this.start = true;
             switch(this.getValue()){
                 case 'solve':
-                    console.log('puzzle solved');
+                    solved.addPuzzle(pzzle);
+                    solved.run();
                     break;
                 case 'gen':
                     pzzle.newPuzzle();

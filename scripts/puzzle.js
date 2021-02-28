@@ -75,11 +75,11 @@ export class Puzzle {
     returnCell(x,y){
         /* Returns the cell value
         Arg:
-            x: the x index
-            y: the y index
+            x: the x index (col)
+            y: the y index (row)
         returns value at indexs
         */
-        return this.puzzle[x][y];
+        return this.puzzle[y][x];
     }
 
     returnRow(ind){
@@ -118,10 +118,14 @@ export class Puzzle {
 
     returnCube(x,y){
         /* Returns the 3*3 cube of co-ord x,y
+        args: 
+            x: the x index 
+            y: the y index to start
         */
         var ret = [];
-        var xStart = this.getStart(x);
-        var yStart = this.getStart(y);
+        // X and Y swapped so function works correctly
+        var xStart = this.getStart(y);
+        var yStart = this.getStart(x);
         for (var outer=0; outer < 3; outer++){
             var yPointer = yStart
             for (var inner=0; inner < 3; inner++){
@@ -155,6 +159,16 @@ export class Puzzle {
         if(this.size == 0){
             return true;
         }
+    }
+
+    recUpdateBoard(x,y,val){
+        /* Updates a cell with val, meant for recursive function call only
+        args:
+            x: col of val
+            y: row of val
+            val: the inserted val
+        */
+        this.puzzle[y][x] = val;
     }
 
     createRow(){
