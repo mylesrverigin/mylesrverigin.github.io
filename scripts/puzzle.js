@@ -25,8 +25,10 @@ export class Puzzle {
     }
 
     getSection(val){
-        /* Returns what 3*3 section the value would be in */
-        return (Math.ceil(val/3))-1;
+        /* Returns what 3*3 section the value would be in 
+            This Rounds down to next whole Value
+        */
+        return (Math.floor(val/3));
     }
 
     indextoRow(cellIndex){
@@ -70,6 +72,67 @@ export class Puzzle {
         return false;
     }
 
+    returnCell(x,y){
+        /* Returns the cell value
+        Arg:
+            x: the x index
+            y: the y index
+        returns value at indexs
+        */
+        return this.puzzle[x][y];
+    }
+
+    returnRow(ind){
+        /* Returns a row of the puzzle 
+        arg: 
+            ind: the index of row to return
+        */
+        return this.puzzle[ind];
+    }
+
+    returnCol(ind){
+        /* Returns a Col of the puzzle 
+        arg: 
+            ind: the index of col to return
+        */
+        var ret = []
+        for (var i of this.puzzle){
+            ret.push(i[ind]);
+        }
+        return ret;
+    }
+
+    getStart(ind){
+        /* Returns the start of a 3*3 section
+        arg:
+            ind: the index to search around
+        
+            | V 
+         ### ### ###
+
+        returns the index start
+        */
+        var section = this.getSection(ind);
+        return section*3;
+    }
+
+    returnCube(x,y){
+        /* Returns the 3*3 cube of co-ord x,y
+        */
+        var ret = [];
+        var xStart = this.getStart(x);
+        var yStart = this.getStart(y);
+        for (var outer=0; outer < 3; outer++){
+            var yPointer = yStart
+            for (var inner=0; inner < 3; inner++){
+                ret.push(this.puzzle[xStart][yPointer]);
+                yPointer++;
+            }
+            xStart++;
+        }
+        return ret;
+    }
+
     updateBoard(cellIndex,value){
         /* Updates a Cell in the puzzle obj
         args:
@@ -77,6 +140,8 @@ export class Puzzle {
             value: the value in cell
 
         checks if there is a value there and updates size of puzzle accordingly 
+
+        if board full returns True
         */
         var x = this.indextoCol(cellIndex);
         var y = this.indextoRow(cellIndex);
@@ -88,7 +153,7 @@ export class Puzzle {
         this.puzzle[y][x] = value;
         console.log(this.size);
         if(this.size == 0){
-            alert('Board is full')
+            return true;
         }
     }
 
@@ -115,7 +180,7 @@ export class Puzzle {
     findShuffle(){
         /* Finds section and Columns to Swaps */
        this.getRandomOrder();
-       var section = this.getSection(this.order[6]);
+       var section = this.getSection(this.order[6]-1);// gets 1-9 >> -1 >> 0-8
        var c1_index = this.getMod(this.order[0]);
        var c2_index = this.getMod(this.order[1]);
        if (c1_index == c2_index){
@@ -163,7 +228,6 @@ export class Puzzle {
         Arg:
             remove: the number of cells to replace
         */
-       console.log(this.size);
         while (remove > 0){
             var randIndex = this.randomXY();
             var x = randIndex[0];
@@ -182,6 +246,8 @@ export class Puzzle {
             adds a row, shuffles values
                 adds next row etc.
         */
+        this.puzzle = [];
+        this.size = 81;
         this.getRandomOrder();
         var rows = 9;
         while (rows > 0){
@@ -194,6 +260,28 @@ export class Puzzle {
             this.shuffleOrder(shuffle);
             rows--;
         }
+    }
+    blankOrder(){
+        /* Makes a this.order blank for generating a blank sudoku
+        */
+        var ret = [];
+        for (let i=0; i < 9;i++){
+            ret.push(false);
+        }
+        this.order = ret;
+    }
+
+    buildBlank(){
+        /* Builds a Blank puzzle where all Values are false
+        */
+        this.puzzle = [];
+        this.blankOrder();
+        var rows = 9;
+        while (rows > 0){
+            this.createRow();
+            rows--;
+        }
+        this.size = 81;
     }
 
     writePuzzle(){
@@ -211,7 +299,18 @@ export class Puzzle {
         }
     }
 
-    run(){
+    clearBoard(){
+        /* Deletes current board and size count,
+            Clears the board and makes it blank setting all values to false
+        */
+        this.buildBlank();
+        this.writePuzzle();
+    }
+
+    newPuzzle(){
+        /* Deletes current board and size count,
+            Regenerates a puzzle and then sets it onto the page
+        */
         this.buildPuzzle();
         var shuffles = 10
         while (shuffles > 0){
@@ -219,6 +318,8 @@ export class Puzzle {
             this.shuffleRow();
             shuffles--;
         }
-        this.remove(30);
+        this.remove(40);
+        this.writePuzzle();
+        console.log(this.returnCube(8,8));
     }
 }
