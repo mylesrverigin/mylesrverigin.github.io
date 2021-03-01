@@ -84,7 +84,9 @@ class Events {
                     solved.run();
                     break;
                 case 'gen':
+                    var start = performance.now();
                     pzzle.newPuzzle();
+                    console.log((performance.now()-start)+' millisecond runtime to generate');
                     break;
                 case 'clear': 
                     pzzle.clearBoard();

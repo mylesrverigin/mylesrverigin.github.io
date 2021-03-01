@@ -73,12 +73,16 @@ export class Solver{
         var startIndex = 0;
         var valueCount = 0;
         var solved = 0;
-        this.loopdelay = 0;
+        this.loopdelay = 0; // used for delaying writing value to dom
+        /// performance metrics 
+        var start = performance.now();
+        this.calls = 0
         if (this.recursiveCall(startIndex,solveOrder,solved,valueCount)){
             ;
         }else{
             alert('Un-solvable');
         }
+        console.log((performance.now()-start)+' millisecond runtime to solve \n Recursive calls:' + this.calls);
     }
 
     recursiveCall(row,solveOrder,solved,valueCount){
@@ -100,6 +104,7 @@ export class Solver{
             return true;
         }
         var val = solveOrder[solved] // the search value
+        this.calls += 1;
         // row Loop
         for (var rowInd=row;rowInd<9;rowInd++){
             // can place in row
@@ -140,7 +145,7 @@ export class Solver{
             }
             // if cant place row move to next 
             else{
-                // row must have value increment count
+                // row must have value so increment count
                 valueCount++;
                 if (this.recursiveCall(rowInd+1,solveOrder,solved,valueCount)){
                     return true;
@@ -152,6 +157,7 @@ export class Solver{
     }
 
     sleep(ms) {
+        /* this delays the running a function */
         return new Promise(resolve => setTimeout(resolve, ms));
       }
 
