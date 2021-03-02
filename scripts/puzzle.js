@@ -275,24 +275,14 @@ export class Puzzle {
             rows--;
         }
     }
-    blankOrder(){
-        /* Makes a this.order blank for generating a blank sudoku
-        */
-        var ret = [];
-        for (let i=0; i < 9;i++){
-            ret.push(false);
-        }
-        this.order = ret;
-    }
 
     buildBlank(){
         /* Builds a Blank puzzle where all Values are false
         */
         this.puzzle = [];
-        this.blankOrder();
         var rows = 9;
         while (rows > 0){
-            this.createRow();
+            this.puzzle.push([false,false,false,false,false,false,false,false,false])
             rows--;
         }
         this.size = 81;

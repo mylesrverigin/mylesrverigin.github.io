@@ -11,8 +11,12 @@ class Events {
     constructor(){
         /* this.start makes it so input changes are not watched until after a button 
             it clicked then flag is changed and input it watched.
+
+           this.solve makes it so you can't run solve until a board has been generated
+           to prevent errors;
         */
         this.start = false;
+        this.solve = false
     }
 
     updateEvent(event){
@@ -80,15 +84,20 @@ class Events {
             this.start = true;
             switch(this.getValue()){
                 case 'solve':
+                    if (!this.solve){
+                        pzzle.clearBoard();
+                    }
                     solved.addPuzzle(pzzle);
                     solved.run();
                     break;
                 case 'gen':
+                    this.solve = true;
                     var start = performance.now();
                     pzzle.newPuzzle();
                     console.log((performance.now()-start)+' millisecond runtime to generate');
                     break;
                 case 'clear': 
+                    this.solve = true;
                     pzzle.clearBoard();
                     break;
                 default:

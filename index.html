@@ -1,133 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/style.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./styles/style.css">
 </head>
+
 <body>
-    <header class='header'>
-        <div class='header__card'>
-            <p>
-                Coded by Myles Verigin
-            </p>
-            <p>
-                UX by Ethan Van Sant (in progress)
-            </p>
+        <div class="bigcontainer">
+                <header class='header'>
+                        <div class='header__card'>
+                                <p>
+                                        Coded by Myles Verigin
+                                </p>
+                                <p>
+                                        UX by Ethan Van Sant
+                                </p>
+                        </div>
+                        <h1 class='header__heading'>
+                                Sudoku
+                        </h1>
+                        <div class='header__card'>
+                                <p class='header__card-timer'>
+                                        00:00:00
+                                </p>
+                        </div>
+                </header>
+                <div class='sudoku-board'>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='0'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='1'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='2'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='3'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='4'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='5'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='6'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='7'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='8'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='9'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='10'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='11'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='12'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='13'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='14'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='15'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='16'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='17'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='18'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='19'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group1' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='20'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='21'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='22'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group2' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='23'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='24'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='25'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group3' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='26'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='27'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='28'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='29'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='30'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='31'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='32'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='33'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='34'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='35'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='36'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='37'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='38'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='39'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='40'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='41'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='42'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='43'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='44'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='45'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='46'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group4' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='47'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='48'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='49'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group5' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='50'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='51'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='52'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group6' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='53'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='54'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='55'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='56'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='57'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='58'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='59'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='60'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='61'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='62'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='63'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='64'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='65'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='66'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='67'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='68'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='69'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='70'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='71'>
+                        </div>
+                        <div class='sudoku-board__row'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='72'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='73'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group7' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='74'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='75'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="2"
+                                        autocomplete="off" maxlength="1" id='76'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group8' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='77'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='78'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='79'>
+                                <input class='sudoku-board__cell sudoku-board__cell--group9' type="text" size="1"
+                                        autocomplete="off" maxlength="1" id='80'>
+                        </div>
+                </div>
+                <div class="buttonContainer">
+                        <button class='buttonContainer__button' value='gen'><img src="" alt=""> generate</button>
+                        <button class='buttonContainer__button' value='solve'>solve</button>
+                        <button class='buttonContainer__button' value='clear'>clear</button>
+                </div>
         </div>
-        <h1 class='header__heading'>
-            Sudoku
-        </h1>
-        <div class='header__card'>
-            TIMER
-        </div>
-    </header>
-    <table class='sudoku-board'>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='0'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='1'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='2'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='3'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='4'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='5'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='6'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='7'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='8'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='9'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='10'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='11'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='12'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='13'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='14'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='15'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='16'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='17'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='18'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='19'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='20'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='21'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='22'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='23'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='24'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='25'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='26'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='27'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='28'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='29'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='30'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='31'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='32'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='33'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='34'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='35'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='36'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='37'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='38'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='39'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='40'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='41'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='42'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='43'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='44'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='45'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='46'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='47'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='48'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='49'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='50'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='51'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='52'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='53'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='54'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='55'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='56'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='57'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='58'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='59'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='60'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='61'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='62'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='63'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='64'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='65'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='66'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='67'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='68'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='69'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='70'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='71'></td>
-        </tr>
-        <tr class='sudoku-board__row'>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='72'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='73'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='74'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='75'></td>
-            <td><input class='sudoku-board__cell' type="text" size="2" autocomplete="off" maxlength="1" id='76'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='77'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='78'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='79'></td>
-            <td><input class='sudoku-board__cell' type="text" size="1" autocomplete="off" maxlength="1" id='80'></td>
-        </tr>
-    </table>
-    <button value='gen'>generate</button>
-    <button value='solve'>solve</button>
-    <!-- <button value='clear'>clear</button> -->
 </body>
 <script type="module" src="./scripts/main.js"></script>
+
 </html>

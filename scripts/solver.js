@@ -45,6 +45,8 @@ export class Solver{
     }
 
     run(){
+        // console.log(this.puzzle);
+        // console.log(this.pzzleClass.size);
         this.backStepSolve();
     }
 
@@ -62,14 +64,9 @@ export class Solver{
     backStepSolve(){
         /* Uses recursion to solve the puzzle
         */
-        var puzzleCopy = new Puzzle();
-        // generate attributes we need
-        puzzleCopy.puzzle = this.puzzle.slice() // take current puzzle copy 
-        puzzleCopy.size = this.pzzleClass.size;
-        puzzleCopy.getRandomOrder() // solve order 
-        //
-        var solveOrder = puzzleCopy.order; 
-        this.addPuzzle(puzzleCopy); // add to class for easier access
+        this.pzzleClass.getRandomOrder()
+        var solveOrder = this.pzzleClass.order; 
+        // this.addPuzzle(puzzleCopy); // add to class for easier access
         var startIndex = 0;
         var valueCount = 0;
         var solved = 0;
@@ -123,7 +120,7 @@ export class Solver{
                                 // purely for visual joy
                                 var cellId = rowInd*9+colInd;
                                 this.loopdelay++;
-                                this.sleep(250*this.loopdelay).then(() => { insertElementColor(cellId,val,'green'); });
+                                this.sleep(250*this.loopdelay).then(() => { insertElementColor(cellId,val,true); });
                                 // call for next row
                                 if (this.recursiveCall(rowInd+1,solveOrder,solved,valueCount)){
                                     return true;
@@ -134,7 +131,7 @@ export class Solver{
                                     this.pzzleClass.recUpdateBoard(colInd,rowInd,false);
                                     // purely for visual joy
                                     this.loopdelay ++;
-                                    this.sleep(250*this.loopdelay).then(() => { insertElementColor(cellId,'','red'); });
+                                    this.sleep(250*this.loopdelay).then(() => { insertElementColor(cellId,'',false); });
                                 }
                             }
                         }

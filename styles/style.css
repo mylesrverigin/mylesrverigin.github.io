@@ -14,40 +14,61 @@ body {
     text-align: center;
 }
 /* Header */
+.bigcontainer{
+    flex-flow: column nowrap;
+    width: 100vw;
+}
 .header{
-    margin: 5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 10rem;
 }
 .header__card{
-    display: inline-block;
-    margin: 0 4rem;
     background-color: rgba(141, 141, 141, 0.5);
-    border-radius: 15%;
+    box-sizing: border-box;
+    height: 80%;
+    padding: 1rem;
+    border-radius: 20% / 5rem ;
     color: rgba(37, 34, 34, 0.8);
     font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-.header__heading{
+
+.header__card-timer{
+    box-sizing: border-box;
     font-size: 6rem;
+    height: 100%;
+}
+
+.header__heading{
+    font-size: 8rem;
     display: inline-block;
     font-weight: bold;
     color: rgba(37, 34, 34, 0.8);
 }
 /* Sudoku Board */
 .sudoku-board{
-    width: 54vw;
-    height: 72vh;
-    margin: auto;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.sudoku-board__row{
+    flex-flow: row nowrap;
+    width: 100%;
+    padding: 0.25rem;
 }
 .sudoku-board__cell{
-    padding: 0;
-    margin: 0;
     border: none;
-    border-radius: 15%;
-    width: 100%;
-    height: 100%;
+    border-radius: 25%;
+    width: 7vh;
+    height: 7vh;
     color: rgba(37, 34, 34, 0.8);
-    font-size: 4rem;
+    font-size: 5rem;
     text-align: center;
-    background-color: rgba(79, 156, 245, 0.589);
 }
 .sudoku-board__cell:hover {
     background-color: rgba(2, 88, 77, 0.6);
@@ -57,16 +78,68 @@ body {
     outline: none;
     caret-color: transparent;
   }
-.sudoku-board__cell:nth-of-type(9n){
-    background-color: blue;
-}
 .sudoku-board__cell:disabled{
     color: rgba(10, 10, 10, 0.85);
 }
-/* buttons Panel */
-td {
-    box-sizing: border-box;
-    width: 6vh;
-    height: 6vh;
-    padding: 0;
+
+.sudoku-board__cell--group1{
+    background-color: rgba(238, 167, 61, 0.4);
 }
+
+.sudoku-board__cell--group2{
+    background-color: rgba(240, 100, 216, 0.4);
+}
+
+.sudoku-board__cell--group3{
+    background-color: rgba(126, 76, 243, 0.4);
+}
+
+.sudoku-board__cell--group4{
+    background-color: rgba(61, 188, 238, 0.4);
+}
+
+.sudoku-board__cell--group5{
+    background-color: rgba(53, 156, 70, 0.4);
+}
+
+.sudoku-board__cell--group6{
+    background-color: rgba(172, 31, 201, 0.4);
+}
+
+.sudoku-board__cell--group7{
+    background-color: rgba(107, 182, 22, 0.4);
+}
+
+.sudoku-board__cell--group8{
+    background-color: rgba(238, 234, 22, 0.4);
+}
+
+.sudoku-board__cell--group9{
+    background-color: rgba(182, 122, 33, 0.4);
+}
+
+.sudoku-board__cell--placed{
+    background-color: rgba(80, 226, 36, 0.6);
+}
+
+.sudoku-board__cell--unplaced{
+    background-color: rgba(216, 27, 59, 0.6);
+}
+/* buttons Panel */
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.buttonContainer__button {
+    width: 21vh;
+    height: 7vh;
+    margin: 1rem;
+    background-color: rgba(141, 141, 141, 0.5);
+    border-radius: 20% / 5rem ;
+}
+.buttonContainer__button:focus {
+    outline: none;
+  }
