@@ -28,7 +28,7 @@ body {
     padding: 1rem 0;
 }
 .header__card{
-    background-color: rgba(141, 141, 141, 0.5);
+    background-color: #E2E1E1;
     box-sizing: border-box;
     height: 80%;
     padding: 1rem;
@@ -156,12 +156,27 @@ body {
     height: 7vh;
     margin: 0 1rem;
     border: none;
-    background-color: rgba(141, 141, 141, 0.5);
+    background-color: #E2E1E1;
     border-radius: 20% / 5rem ;
+    background-position: center;
+    background-size: contain;
 }
 .buttonContainer__button:focus {
     outline: none;
   }
+
+.buttonContainer__button--gen {
+    background-image: url(../assests/new-puzzle.PNG);
+}
+
+.buttonContainer__button--solve {
+    background-image: url(../assests/solve-puzzle.PNG);
+}
+
+.buttonContainer__button--clear {
+    background-image: url(../assests/clear-puzzle.PNG);
+}
+
 
 /* Screen block */
 .block-screen {
