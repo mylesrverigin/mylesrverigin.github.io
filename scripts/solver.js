@@ -1,5 +1,4 @@
-import {Puzzle} from './puzzle.js';
-import {insertElementColor} from './modify-dom.js';
+import {insertElementColor, addBlock} from './modify-dom.js';
 
 export class Solver{
 
@@ -44,10 +43,69 @@ export class Solver{
         return true;
     }
 
+    checkRepeat(arr){
+        /* Iterates an array and checks if values repeat
+            ignore booleans
+        
+        args:
+            arr: input arr
+
+        Returns Bool true if repeat false if none
+        */
+        var count = {};
+        for (var i of arr){
+            if (typeof(i) == 'boolean'){
+                ;
+            }
+            else if (i in count){
+                return true;
+            }else{
+                count[i] = 1;
+            }
+        }
+        return false;
+    }
+
+    isPossible(){
+        /* Checks if puzzle is possible
+        
+        Returns: 
+            Bool
+        */
+        // row and col repeat check
+        for (var i=0; i<9;i++){
+            var row = this.pzzleClass.returnRow(i);
+            if (this.checkRepeat(row)){
+                alert('Repeat Values in row '+(i+1))
+                return false;
+            }
+            var col = this.pzzleClass.returnCol(i);
+            if (this.checkRepeat(col)){
+                alert('Repeat Values in col '+(i+1))
+                return false;
+            }
+        }
+        // cube check
+        for (var r=0;r<9;r+=3){
+            for (var c=0;c<9;c+=3){
+                var cube = this.pzzleClass.returnCube(c,r);
+                if (this.checkRepeat(cube)){
+                    alert('Repeat Values in cube '+(c+1)+', '+(r+1))
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     run(){
-        // console.log(this.puzzle);
-        // console.log(this.pzzleClass.size);
-        this.backStepSolve();
+        if (this.isPossible()){
+            addBlock(true);
+            this.backStepSolve();
+            this.sleep(250*(this.loopdelay+1)).then(() => { addBlock(false); });
+        }else{
+            console.log("Current Puzzle not possible");
+        }
     }
 
     convertSet(arr){

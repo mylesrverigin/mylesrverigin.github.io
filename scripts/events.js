@@ -9,14 +9,9 @@ class Events {
     /* Class used to handle events and call other methods based on what happens
     */
     constructor(){
-        /* this.start makes it so input changes are not watched until after a button 
-            it clicked then flag is changed and input it watched.
-
-           this.solve makes it so you can't run solve until a board has been generated
-           to prevent errors;
+        /* Generates a blank board to start and capture user input right away
         */
-        this.start = false;
-        this.solve = false
+        pzzle.clearBoard();
     }
 
     updateEvent(event){
@@ -67,7 +62,7 @@ class Events {
             can also reset or solve puzzle
          */
 
-        if (this.getTagName() === 'INPUT' && this.start){
+        if (this.getTagName() === 'INPUT'){
             var filteredInput = this.filterInput();
             if (typeof(filteredInput) === 'number'){
                 insertElement(this.getId(),filteredInput);
@@ -84,20 +79,15 @@ class Events {
             this.start = true;
             switch(this.getValue()){
                 case 'solve':
-                    if (!this.solve){
-                        pzzle.clearBoard();
-                    }
                     solved.addPuzzle(pzzle);
                     solved.run();
                     break;
                 case 'gen':
-                    this.solve = true;
                     var start = performance.now();
                     pzzle.newPuzzle();
                     console.log((performance.now()-start)+' millisecond runtime to generate');
                     break;
                 case 'clear': 
-                    this.solve = true;
                     pzzle.clearBoard();
                     break;
                 default:

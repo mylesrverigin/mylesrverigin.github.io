@@ -20,6 +20,23 @@ function addPlaced(id,selected){
     document.getElementById(id).classList.add(classAdd);
 }
 
+export function addBlock(on) {
+    /* Adds a screen Block for computationally intensive calls
+
+    args:
+        on: bool >> to turn on or off block
+    */
+    var id = 'screen-block-1';
+    var blockClass = 'block-screen--blocked';
+
+    if (on){
+        document.getElementById(id).classList.add(blockClass);
+    }else {
+        document.getElementById(id).classList.remove(blockClass);
+    }
+   
+}
+
 function writeProtect(id){
     /* Makes an element disabled*/
     document.getElementById(id).disabled = true;
@@ -60,6 +77,5 @@ export function insertElementColor(id,value,add){
         add: bool selects what class we add
     */
     insertElement(id,value);
-    writeProtect(id);
     addPlaced(id,add);
 }
