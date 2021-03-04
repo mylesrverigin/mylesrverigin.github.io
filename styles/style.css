@@ -80,11 +80,7 @@ body {
     color: rgba(2, 88, 77, 0.8);
 }
 
-.sudoku-board__cell:hover {
-    background-color: rgba(2, 88, 77, 0.6);
-}
 .sudoku-board__cell:focus {
-    background-color: rgba(1, 197, 132, 0.5);
     outline: none;
     caret-color: transparent;
   }
@@ -96,36 +92,72 @@ body {
     background-color: rgba(238, 167, 61, 0.4);
 }
 
+.sudoku-board__cell--group1:focus, .sudoku-board__cell--group1:hover {
+    background-color: rgba(201, 138, 45, 0.733);
+}
+
 .sudoku-board__cell--group2{
     background-color: rgba(240, 100, 216, 0.4);
+}
+
+.sudoku-board__cell--group2:focus , .sudoku-board__cell--group2:hover {
+    background-color: rgba(202, 80, 182, 0.705);
 }
 
 .sudoku-board__cell--group3{
     background-color: rgba(126, 76, 243, 0.4);
 }
 
+.sudoku-board__cell--group3:focus , .sudoku-board__cell--group3:hover{
+    background-color: rgba(102, 60, 201, 0.623);
+}
+
 .sudoku-board__cell--group4{
     background-color: rgba(61, 188, 238, 0.4);
+}
+
+.sudoku-board__cell--group4:focus, .sudoku-board__cell--group4:hover{
+    background-color: rgba(53, 159, 201, 0.678);
 }
 
 .sudoku-board__cell--group5{
     background-color: rgba(53, 156, 70, 0.4);
 }
 
+.sudoku-board__cell--group5:focus , .sudoku-board__cell--group5:hover{
+    background-color: rgba(38, 117, 51, 0.589);
+}
+
 .sudoku-board__cell--group6{
     background-color: rgba(172, 31, 201, 0.4);
+}
+
+.sudoku-board__cell--group6:focus, .sudoku-board__cell--group6:hover{
+    background-color: rgba(143, 23, 167, 0.685);
 }
 
 .sudoku-board__cell--group7{
     background-color: rgba(107, 182, 22, 0.4);
 }
 
+.sudoku-board__cell--group7:focus, .sudoku-board__cell--group7:hover {
+    background-color: rgba(85, 145, 18, 0.671);
+}
+
 .sudoku-board__cell--group8{
-    background-color: rgba(238, 234, 22, 0.4);
+    background-color: rgba(238, 234, 22, 0.473);
+}
+
+.sudoku-board__cell--group8:focus, .sudoku-board__cell--group8:hover {
+    background-color: rgba(196, 193, 19, 0.726);
 }
 
 .sudoku-board__cell--group9{
     background-color: rgba(182, 122, 33, 0.4);
+}
+
+.sudoku-board__cell--group9:focus, .sudoku-board__cell--group9:hover{
+    background-color: rgba(141, 95, 25, 0.664);
 }
 
 .sudoku-board__cell--placed{
