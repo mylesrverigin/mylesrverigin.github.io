@@ -24,9 +24,19 @@
                                 Sudoku
                         </h1>
                         <div class='header__card'>
-                                <p class='header__card-timer'>
-                                        00:00:00
-                                </p>
+                                <div class="header__card-timer-container">
+                                        <p class='header__card-timer' id='hours'>
+                                                00
+                                        </p>
+                                        :
+                                        <p class='header__card-timer' id='minutes'>
+                                                00
+                                        </p>
+                                        :
+                                        <p class='header__card-timer' id='seconds'>
+                                                00
+                                        </p>
+                                </div>
                         </div>
                 </header>
                 <div class='sudoku-board'>
@@ -217,7 +227,8 @@
                         </p>
                 </div>
                 <div class="buttonContainer">
-                        <button class='buttonContainer__button buttonContainer__button--gen' value='gen'><img src="" alt=""></button>
+                        <button class='buttonContainer__button buttonContainer__button--gen' value='gen'><img src=""
+                                        alt=""></button>
                         <button class='buttonContainer__button buttonContainer__button--solve' value='solve'></button>
                         <button class='buttonContainer__button buttonContainer__button--clear' value='clear'></button>
                 </div>

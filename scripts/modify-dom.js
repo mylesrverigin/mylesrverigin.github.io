@@ -48,7 +48,7 @@ function unWriteProtect(id){
 }
 
 export function insertElement(id,value){
-    /* Updates the value of TD html elements
+    /* Updates the value of html elements
     Args: 
         id: the id to insert value at 
         value: the value to insert
@@ -78,4 +78,14 @@ export function insertElementColor(id,value,add){
     */
     insertElement(id,value);
     addPlaced(id,add);
+}
+
+export function insertTextHTML(id,value){
+    /* Adds value to html id using .innerHTML 
+    
+    args:
+        id: id of element 
+        value: what to insert into innerHTML
+    */
+    document.getElementById(id).innerText = value;
 }

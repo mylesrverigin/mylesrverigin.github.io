@@ -40,9 +40,14 @@ body {
     justify-content: space-evenly;
 }
 
+.header__card-timer-container {
+    display: flex;
+}
+
 .header__card-timer{
+    margin: 0 0.5rem;
     box-sizing: border-box;
-    font-size: 6rem;
+    font-size: 2rem;
     height: 100%;
 }
 

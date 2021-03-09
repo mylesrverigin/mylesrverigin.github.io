@@ -1,9 +1,13 @@
 import {insertElement} from './modify-dom.js';
 import {Puzzle} from './puzzle.js';
 import {Solver} from './solver.js';
+import { Timer } from './timer.js';
 
 var pzzle = new Puzzle();
 var solved = new Solver();
+var timer = new Timer();
+timer.setStartTime();
+timer.startTimer();
 
 class Events {
     /* Class used to handle events and call other methods based on what happens
