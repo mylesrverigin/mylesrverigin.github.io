@@ -25,7 +25,7 @@ export class Solver{
             var rowSet = this.convertSet(this.pzzleClass.returnRow(ind));
             var colSet = this.convertSet(this.pzzleClass.returnCol(ind));
             if (rowSet.size !== 9 || colSet.size !== 9){
-                alert('Non unique values in row or col ' + ind);
+                alert('Repeat values in row or col ' + ind+1);
                 return false
             }
         }
@@ -34,7 +34,7 @@ export class Solver{
             for (var y=0; y < 9;y+=3){
                 var cubeSet = this.convertSet(this.pzzleClass.returnCube(x,y));
                 if (cubeSet.size !== 9){
-                    alert('Non unique values in cube '+x+1+' '+y+1);
+                    alert('Repeat values in cube '+x+1+' '+y+1);
                     return false;
                 }
             }

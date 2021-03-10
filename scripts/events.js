@@ -6,8 +6,6 @@ import { Timer } from './timer.js';
 var pzzle = new Puzzle();
 var solved = new Solver();
 var timer = new Timer();
-timer.setStartTime();
-timer.startTimer();
 
 class Events {
     /* Class used to handle events and call other methods based on what happens
@@ -72,6 +70,7 @@ class Events {
                 insertElement(this.getId(),filteredInput);
                 if(pzzle.updateBoard(this.getId(),filteredInput)){
                     // board full flag fired check solution
+                    timer.stopTimer();
                     solved.addPuzzle(pzzle);
                     solved.isSolved();
                 };
@@ -83,15 +82,21 @@ class Events {
             this.start = true;
             switch(this.getValue()){
                 case 'solve':
+                    timer.stopTimer();
                     solved.addPuzzle(pzzle);
                     solved.run();
                     break;
                 case 'gen':
+                    timer.stopTimer();
+                    timer.clearTimer();
+                    timer.startTimer();
                     var start = performance.now();
                     pzzle.newPuzzle();
                     console.log((performance.now()-start)+' millisecond runtime to generate');
                     break;
                 case 'clear': 
+                    timer.stopTimer();
+                    timer.clearTimer();
                     pzzle.clearBoard();
                     break;
                 default:

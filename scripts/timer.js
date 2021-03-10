@@ -20,13 +20,25 @@ export class Timer {
     startTimer() {
         /* Starts the Timer counting */
         this.setStartTime();
-        setInterval(() => {
+        this.timerobj = setInterval(() => {
             this.setCurrentTime();
             this.timeSplit();
             insertTextHTML('seconds',this.seconds);
             insertTextHTML('minutes',this.minutes);
             insertTextHTML('hours',this.hours);
         },1000);
+    }
+
+    stopTimer() {
+        /* Stops timer obj */
+        clearInterval(this.timerobj);
+    }
+
+    clearTimer() {
+        /* Resets on screen timer back to 00:00:00 */
+        insertTextHTML('seconds','00');
+        insertTextHTML('minutes','00');
+        insertTextHTML('hours','00');
     }
 
     timeSplit() {
@@ -45,8 +57,15 @@ export class Timer {
         var seconds = Math.floor(totalSeconds%60);
         this.seconds = this.zeroPadded(seconds);
         var minutes = Math.floor(totalSeconds/60);
+        if (minutes >= 60) {
+            minutes -= 60;
+        }
         this.minutes = this.zeroPadded(minutes);
-        var hours = Math.floor(totalSeconds/360);
+        var hours = Math.floor(totalSeconds/3600);
+        if (hours >= 99) {
+            alert('What are you doing with your life')
+            hours -= 99;
+        }
         this.hours = this.zeroPadded(hours);
     }
 
